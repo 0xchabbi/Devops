@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deployment
+  labels:
+    app: mongo
+spec:
+  replicas: 1 #How many Pods you want to creat
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:5.0
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-user
+        - name: MONGO_INITDB_ROOT_Password
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-password
+
+--- #separet file
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-service #endpoint to access
+spec:
+  selector: #select pods to forward the request to
+    app: mongo #should match the pods label
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017 #containerPort of Deployment same as containerport
