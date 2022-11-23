@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp-deployment
-  namespace: mongo_application
+  namespace: mongoapplication
   labels:
     app: webapp
 spec:
@@ -41,7 +41,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: webapp-service #endpoint to access
-  namespace: mongo_application
+  namespace: mongoapplication
 spec:
   type: NodePort
   selector: #select pods to forward the request to
