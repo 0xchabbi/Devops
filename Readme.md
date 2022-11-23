@@ -1,3 +1,4 @@
+[![Board Status](https://dev.azure.com/bchabbi/d026da45-80e3-4dfb-8c29-5f92c60d9a7b/fa76cfdd-9bf5-4183-86dc-c526268c3093/_apis/work/boardbadge/48595284-74f2-4bc7-b0e0-a0bd14cf4d53)](https://dev.azure.com/bchabbi/d026da45-80e3-4dfb-8c29-5f92c60d9a7b/_boards/board/t/fa76cfdd-9bf5-4183-86dc-c526268c3093/Microsoft.RequirementCategory)
 # K8s-Demo
 K8s-Demo ist eine Beispiel-Kubernetes-Applikation und bildet den Standard für weitere Kubernetes-Applikationen.
 
