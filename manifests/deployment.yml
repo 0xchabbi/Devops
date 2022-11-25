@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: mongo50 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo50
+  template:
+    metadata:
+      labels:
+        app: mongo50 
+    spec:
+      containers:
+        - name: mongo50 
+          image: mycontainerregistrychabbi.azurecr.io/mongo50
+          ports:
+          - containerPort: 27017
