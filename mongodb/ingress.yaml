@@ -1,19 +1,20 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-    name: echo-ingress
+    name: mongo-ingress
     namespace: mongoapplication
     annotations:
         haproxy.org/path-rewrite: "/"
-        kubernetes.io/ingress.class: haproxy
+        kubernetes.io/ingress.class: "haproxy"
+        haproxy.org/ingress.class: "haproxy"
 spec:
     rules:
     - http:
         paths:
-        - path: /echo
+        - path: /
           pathType: Prefix
           backend:
             service:
-              name: echo-service
+              name: mongo-service
               port:
-                number: 8080
+                number: 27017
