@@ -1,8 +1,10 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: mongo 
+  name: mongo
+  namespace: mongoapplication
 spec:
+  progressDeadlineSeconds: 3600
   replicas: 1
   selector:
     matchLabels:
